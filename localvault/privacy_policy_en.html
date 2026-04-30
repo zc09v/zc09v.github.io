@@ -139,12 +139,12 @@
         <ul>
             <li>Track your usage or behavior</li>
             <li>Collect analytics or diagnostic data</li>
-            <li>Record crash logs (unless you explicitly opt in via macOS system-level crash reporting)</li>
+            <li>Record crash logs (unless you explicitly opt in via system-level crash reporting)</li>
             <li>Use any form of telemetry</li>
             <li>Send data to any remote server</li>
         </ul>
         <h3>2.2 Where Your Data Lives</h3>
-        <p>All data you create within LocalVault — including passwords, usernames, URLs, and notes — is stored <strong>exclusively on your Mac</strong>, inside the app's local sandbox container.</p>
+        <p>All data you create within LocalVault — including passwords, usernames, URLs, and notes — is stored <strong>exclusively on your device</strong>, inside the app's local sandbox container.</p>
         <p>No data leaves your device at any time, for any reason.</p>
 
         <hr>
@@ -153,7 +153,7 @@
         <h3>3.1 Field-Level Encryption</h3>
         <p>Each password stored in LocalVault is individually encrypted (via Apple's native CryptoKit framework) before being written to the local database. The encryption key is derived by a memory-hard key derivation function resistant to GPU/ASIC attacks.</p>
         <h3>3.2 Master Password</h3>
-        <p>Your master password is never stored in plaintext. Instead, a verification token (encrypted with your master-password-derived key) is stored in the macOS Keychain. When you unlock LocalVault, your entered password is used to attempt to decrypt this token — if it succeeds, the password is correct.</p>
+        <p>Your master password is never stored in plaintext. Instead, a verification token (encrypted with your master-password-derived key) is stored in the system Keychain. When you unlock LocalVault, your entered password is used to attempt to decrypt this token — if it succeeds, the password is correct.</p>
         <h3>3.3 Export Security</h3>
         <p>LocalVault supports exporting your data as an encrypted <span class="tag">.crhino</span> file for backup or migration. Plaintext CSV export is also available but requires an explicit security warning confirmation.</p>
 
@@ -167,7 +167,7 @@
 
         <h2>5. Network Access</h2>
         <p>LocalVault is a <strong>zero-network application</strong>. The entitlements file explicitly disables outgoing network connections. The app is built without URLSession, WebSocket, or any other networking framework.</p>
-        <p>The sole exception is that you may choose to click a URL stored in an entry or visit this privacy policy, which will open the URL in your default web browser via the macOS <span class="tag">NSWorkspace.open()</span> API. This action is entirely user-initiated and delegates the network request to your browser. LocalVault itself does not make any network request.</p>
+        <p>The sole exception is that you may choose to click a URL stored in an entry or visit this privacy policy, which will open the URL in your default web browser via the system API. This action is entirely user-initiated and delegates the network request to your browser. LocalVault itself does not make any network request.</p>
 
         <hr>
 
