@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StowKey — 隐私政策</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.8;
+    color: #1d1d1f;
+    background: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #f5f5f7; background: #1c1c1e; }
+    a { color: #6ea8fe; }
+    table { background: #2c2c2e; }
+    th, td { border-color: #444; }
+    th { background: #333; }
+  }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  p.meta { color: #86868b; font-size: 14px; margin-top: 0; }
+  h2 { font-size: 20px; font-weight: 600; margin-top: 40px; }
+  p, li { font-size: 16px; }
+  a { color: #006edc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { padding-left: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { border: 1px solid #d2d2d7; padding: 10px 14px; text-align: left; }
+  th { background: #f5f5f7; font-weight: 600; }
+  footer { margin-top: 60px; color: #86868b; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>StowKey — 隐私政策</h1>
+<p class="meta">最后更新：2026 年 5 月</p>
+
+<h2>1. 概述</h2>
+<p>StowKey 是一款<strong>纯本地</strong>密码管理工具。您的数据永远不会离开您的设备。我们遵循零网络、零采集原则。</p>
+
+<h2>2. 我们不收集的数据</h2>
+<p>StowKey <strong>不会</strong>收集、传输或存储以下任何信息：</p>
+<ul>
+  <li>个人身份信息（姓名、邮箱、地址、电话号码等）</li>
+  <li>使用分析或遥测数据</li>
+  <li>崩溃报告</li>
+  <li>设备标识符</li>
+  <li>位置数据</li>
+  <li>您密码库中的任何数据</li>
+  <li>任何类型的数据</li>
+</ul>
+
+<h2>3. 数据存储方式</h2>
+<p>所有密码库数据<strong>仅存储在您的设备上</strong>：</p>
+<table>
+  <tr><th>数据类型</th><th>存储位置</th><th>加密方式</th></tr>
+  <tr><td>密码、条目、标签、空间</td><td>App 沙盒内的 SQLite 数据库</td><td>AES-256-GCM 静态加密</td></tr>
+  <tr><td>主密码验证令牌</td><td>macOS / iOS 钥匙串（Keychain）</td><td>系统级加密</td></tr>
+  <tr><td>密钥派生盐值</td><td>macOS / iOS 钥匙串（Keychain）</td><td>系统级加密</td></tr>
+  <tr><td>引导 / 教程展示状态</td><td>UserDefaults（布尔标记）</td><td>无（非敏感信息）</td></tr>
+</table>
+<ul>
+  <li>主密码<strong>永不存储</strong>。它仅在当前会话期间存在于内存中，用于派生加密密钥。</li>
+  <li>锁定密码库后，会话密钥立即从内存中清除。</li>
+  <li>所有加密和密钥派生均使用 Apple CryptoKit 和 Argon2id 在设备本地完成。</li>
+</ul>
+
+<h2>4. 网络访问</h2>
+<p>StowKey <strong>完全没有网络能力</strong>。该 App：</p>
+<ul>
+  <li>不连接互联网</li>
+  <li>不发送任何 HTTP / HTTPS 请求</li>
+  <li>不使用云同步</li>
+  <li>macOS 端已启用沙盒，无任何网络权限</li>
+</ul>
+<p>这是故意为之：您的密码不应该离开您的设备。</p>
+
+<h2>5. 第三方服务</h2>
+<p>StowKey 未集成任何第三方分析、广告或数据处理服务。由于我们根本不收集任何数据，任何第三方也无从获取您的数据。</p>
+
+<h2>6. 导出与备份</h2>
+<p>您可以导出密码库为加密的 <code>.crhino</code> 文件或未加密的 <code>.csv</code> 文件。您完全控制这些文件的保存位置和访问权限。StowKey 不会将导出的文件传输到任何服务器。</p>
+
+<h2>7. 数据删除</h2>
+<p>所有密码库数据可随时永久删除：</p>
+<ul>
+  <li><strong>设置 → 重置账号</strong>：删除所有空间、条目、标签及 Keychain 中的验证令牌</li>
+  <li><strong>手动删除</strong>：卸载 App 并删除 App 沙盒中的所有数据</li>
+</ul>
+<p>一旦删除，数据无法恢复。不存在任何远程副本。</p>
+
+<h2>8. 儿童隐私</h2>
+<p>StowKey 不收集任何人的任何数据，包括 13 岁以下儿童。该 App 在设计上天然符合 COPPA 和 GDPR 的年龄相关规定。</p>
+
+<h2>9. 您的权利</h2>
+<p>根据您所在司法管辖区，您可能享有访问、删除、数据可携带等权利。由于 StowKey 仅在本地存储数据，且不远程采集任何个人信息，您可以直接在设备上行使这些权利：</p>
+<ul>
+  <li><strong>访问</strong>：所有数据均在 App 内可见</li>
+  <li><strong>删除</strong>：使用「设置 → 重置账号」</li>
+  <li><strong>导出</strong>：使用导出功能获取 <code>.crhino</code> 或 <code>.csv</code> 备份</li>
+</ul>
+
+<h2>10. 政策变更</h2>
+<p>我们可能更新本隐私政策。变更将在 App 及相关网站中体现。重大变更将通过 App 更新说明进行通知。</p>
+
+<h2>11. 联系方式</h2>
+<p>如对本隐私政策有任何疑问：</p>
+<ul>
+  <li><strong>邮箱</strong>：<a href="mailto:zhaochen_009@126.com">zhaochen_009@126.com</a></li>
+</ul>
+
+<footer>&copy; 2026 StowKey。保留所有权利。</footer>
+
+</body>
+</html>
